@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+:root {
+   --primary-color: #000;
+   --secondary-color: #fff;
+   --hour-color: #5c4089;
+   --second-color: #b27171;
+   --center-point: #9b27a9;
+   --time: #3ebaa4;
+   --date: #14acb0;
+}
+
+html {
+   transition: all 0.5s ease-in;
+}
+
+html.dark {
+   --primary-color: #fff;
+   --secondary-color: #333;
+   background-color: #111;
+   color: var(--primary-color);
+}
+
+body {
+   font-family: 'Rubik Mono One', sans-serif;
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   justify-content: center;
+   height: 100vh;
+   background-color: var(--secondary-color);
+   color: var(--primary-color);
+   overflow: hidden;
+}
+
+.toggle {
+   font-family: 'Rubik Mono One', sans-serif;
+   cursor: pointer;
+   background-color: var(--primary-color);
+   color: var(--secondary-color);
+   border: 0;
+   border-radius: 15px;
+   padding: 10px 16px;
+   position: absolute;
+   top: 70px;
+   transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.toggle:hover {
+   background-color: var(--secondary-color);
+   color: var(--primary-color);
+   transform: scale(1.05);
+}
+
+.toggle:focus {
+   outline: none;
+}
+
+.clock-container {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+   gap: 20px;
+}
+
+.clock {
+   position: relative;
+   width: 250px;
+   height: 250px;
+   border: 4px solid var(--date);
+   border-radius: 50%;
+   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.needle {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform-origin: bottom center;
+   transition: all 0.5s ease-in-out;
+   border-radius: 3px;
+}
+
+.needle.hour {
+   height: 60px;
+   width: 6px;
+   background-color: var(--hour-color);
+   transform: translate(-50%, -100%) rotate(0deg);
+}
+
+.needle.minute {
+   height: 90px;
+   width: 4px;
+   background-color: var(--primary-color);
+   transform: translate(-50%, -100%) rotate(0deg);
+}
+
+.needle.second {
+   height: 100px;
+   width: 2px;
+   background-color: var(--second-color);
+   transform: translate(-50%, -100%) rotate(0deg);
+}
+
+.center-point {
+   background-color: var(--center-point);
+   width: 15px;
+   height: 15px;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   border-radius: 50%;
+   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.center-point::after {
+   content: '';
+   background-color: var(--primary-color);
+   width: 8px;
+   height: 8px;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   border-radius: 50%;
+}
+
+.time {
+   font-size: 3rem;
+   color: var(--time);
+   text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.date {
+   font-size: 1rem;
+   letter-spacing: 0.3px;
+   text-transform: uppercase;
+   color: var(--date);
+   text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.social {
+   display: flex;
+   align-items: center;
+   margin-top: 45px;
+   justify-content: space-between;
+}
+
+.social-link {
+   margin-right: 30px;
+   max-width: 30px;
+   max-height: 30px;
+}
